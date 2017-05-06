@@ -392,7 +392,7 @@ def pipeline(img, thresholdParams=ThresholdParams(), mask=None, roi=None):
         offset = img.shape[1] // 2 - posx
     #endregion
 
-    # 6- graphic
+    #region 6- graphic
     # Create an image to draw the lines on
     warp_zero = np.zeros_like(warped).astype(np.uint8)
     color_warp = np.dstack((warp_zero, warp_zero, warp_zero))
@@ -414,6 +414,8 @@ def pipeline(img, thresholdParams=ThresholdParams(), mask=None, roi=None):
                 (255, 255, 255), 2, cv2.LINE_AA)
     cv2.putText(result, "dist.from center: %.1fm" % (offset * xm_per_pix), (10, 90), font, 1, (255, 255, 255), 2,
                 cv2.LINE_AA)
+    #endregion
+
     return result
 
 
